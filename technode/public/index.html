@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>服务器搭建</title>
+    <script src="//cdn.bootcss.com/socket.io/1.4.8/socket.io.js"></script>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="techAngular.js" ></script>
+    <script src="router.js"></script>
+
+    <!--各个子类功能的加载实现的调用-->
+    <script src="contorller/room.js"></script>
+    <script src="contorller/message-create.js"></script>
+    <script src="directive/auto-scroll-to-bottom.js"></script>
+    <script src="directive/ctrl-enter-break-line.js"></script>
+    <script src="contorller/lgoinCtr.js"></script>
+    <script src="contorller/RoomsCtrl.js"></script>
+</head>
+<body ng-app="technode">
+   <div class="navbar navbar-inverse navbar-fiexed-top">
+       <div class="container">
+           <a href="#" class="navbar-brand">technode</a>
+       </div>
+       <div class="collapse navbar-collapse">
+           <ul class="nav navbar-nav navbar-right" ng-show="me">
+               <li>
+                   <img ng-src="{{me.avatarUrl}}" title="{{me.name}}" class="img-rounded">
+               </li>
+               <li>
+                   <a href="" ng-click="logout()" >登出</a>
+               </li>
+           </ul>
+       </div>
+   </div>
+   <div class="container" style="margin-top: 100px">
+       <div class="row" ng-view></div>
+   </div>
+</body>
+<script>
+
+        var socket = io.connect('localhost:9000');
+        socket.on('connected', function () {
+            console.log('connected to technode');
+
+        })
+
+
+
+
+
+
+
+</script>
+</html>

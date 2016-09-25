@@ -1,0 +1,36 @@
+<div class="col-md-9">
+    <div class="panel panel-default">
+        <div class="panel-head"></div>
+        <div class="panel-body">
+            <div class="list-group" style="height: 600px ; overflow: auto" auto-control-scroll >
+                <!--需要再次插入angular的绑定-->
+                <div class="list-group-item" ng-repeat="message in messages">
+                    <img ng-src="{{message.creator.avatarUrl}}" class="img-rounded" title="{{message.creator.name}}">
+                    {{message.creator.name}} : <span ng-bind="message.message"></span>
+                    <time am-title-ago ng-bind="message.createdAt"></time>
+                </div>
+
+            </div>
+            <form action="/" class="message-creater" ng-controller="MessageCtr">
+                <div class="form-group">
+                           <textarea  id="" cols="30" rows="5" class="form-control"
+                                      ctr-enter-break-line="createMessage()" required ng-model="newMessage"
+                                      placeholder="ctrl+enter">
+
+                           </textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-md-3" >
+    <div class="panel panel-default user-list">
+        <div class="panel-handing">在线用户</div>
+        <div class="panel-body">
+            <div class="list-group users" ng-repeat=" item in room">
+                <img src="{{item.avatarUrl}}" class="img-rounded">
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+</div>
